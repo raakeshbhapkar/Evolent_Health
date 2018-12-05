@@ -1,0 +1,11 @@
+.imageClass{
+    width:200px;
+    height:200px;
+}
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+.btn{margin-bottom: 20px;}
+.btn-primary {    background-color: #539504;    border-color: #539504;}
+.btn-primary:hover {    background-color: #416e0c;    border-color: #416e0c;}

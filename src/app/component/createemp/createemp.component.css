@@ -1,0 +1,9 @@
+.btn-primary {    background-color: #539504;    border-color: #539504;}
+.btn-primary:hover {    background-color: #416e0c;    border-color: #416e0c;}
+.panel-primary>.panel-heading{background-color: #415b7c;}
+.panel{background-color: #fff;    margin-bottom: 5px;}
+.panel-primary{border-color: #415b7c;}
+.control-label:before {
+  content:"*";
+  color:red;
+}

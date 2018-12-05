@@ -1,0 +1,11 @@
+
+  .content{position: relative;}
+  body{background: #f4f8fd}
+  .fl{float: left;}
+  .fr{float:right}
+  .themeBtn{position: absolute;
+    right: 20px;}
+    .marL20{margin-left: 20px;}
+    nav{border-top:4px solid #ee6123;border-radius:0;}
+ 
+

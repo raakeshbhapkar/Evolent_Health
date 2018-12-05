@@ -1,0 +1,16 @@
+
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Search By Name"
+            style="width:300px" [(ngModel)]="searchTerm" />
+</div>
+
+
+<div *ngFor="let employeeone of filteredEmployees">
+  <app-display-emp [employee]="employeeone"></app-display-emp>
+
+   
+     <button class="btn btn-primary"  (click)="editEmployee(employeeone.id)">Edit</button>
+  <!-- <button class="btn btn-danger" (click)="deleteEmployee(employeeone.id)">Delete</button> -->
+  <button class="btn btn-danger" (click)="openDialog(employeeone.id)">Delete</button>
+  
+</div> 

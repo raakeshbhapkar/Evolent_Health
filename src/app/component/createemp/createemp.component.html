@@ -1,0 +1,83 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{panelTitle}}</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
+        <label for="name" class="control-label">Name</label>
+        <input id="name" required  type="text" class="form-control"
+               name="name" [(ngModel)]="employee.name" #name="ngModel" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+               <span class="help-block" *ngIf="name.errors?.required && name.touched">
+                Name is required
+              </span>
+              <span class="help-block" *ngIf="name.errors?.pattern && name.touched">
+               Please insert charactor only
+              </span>
+      </div>
+    
+      <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <label for="email" class="control-label">Email</label>
+        <input id="email" required  type="text" class="form-control"
+               name="email" [(ngModel)]="employee.email" #email="ngModel" pattern="^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)*(-[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.([a-z]{2,4})$">
+                 <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                  Email is required
+                </span>
+                 <span class="help-block" *ngIf="email.errors?.pattern && email.touched">
+                Email is Invalid
+              </span>
+      </div>
+      
+      
+        <div class="form-group" [class.has-error]="phoneNumber.touched && phoneNumber.invalid">
+          <label for="phoneNumber" class="control-label">Phone Number</label>
+          <input id="phoneNumber" required #phoneNumber="ngModel" type="text" class="form-control" name="phoneNumber"
+          [(ngModel)]="employee.phoneNumber" pattern="^(?!0.)\d+$" maxlength="10" minlength="10">
+          <span class="help-block" *ngIf="phoneNumber.errors?.required && phoneNumber.touched">
+                  phone number is required
+                </span>
+                 <span class="help-block" *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">
+                Please insert digit only.
+              </span>
+               <span class="help-block" *ngIf="phoneNumber.errors?.minlength && phoneNumber.touched">
+                Please insert 10 digit.
+              </span>
+      </div>
+
+   
+
+      
+      <div class="form-group" [class.has-error]="gender.touched && gender.invalid">
+        <label class="control-label">Gender</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" name="gender" required #gender="ngModel"  value="Male" [(ngModel)]="employee.gender">
+            Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" required #gender="ngModel"  value="Female" [(ngModel)]="employee.gender">
+            Female
+          </label>
+        </div>
+         <span class="help-block" *ngIf="gender.touched && gender.invalid">
+          Gender is required
+        </span>
+      </div>
+       <div class="form-group" >
+        <div class="form-control">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="isActive"  [(ngModel)]="employee.isActive">
+            isActive
+          </label>
+          
+        </div>
+      </div>
+    
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary" [disabled]="employeeForm.invalid" type="submit">Save</button>
+    </div>
+  </div>
+</form>
